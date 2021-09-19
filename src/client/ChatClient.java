@@ -25,9 +25,9 @@ public class ChatClient {
         }
     }  
 
-    public static void startConnection() throws IOException, InterruptedException {
+    public static void startConnection(String ip, String port) throws IOException, InterruptedException {
         try {
-            clientSocket = new Socket("127.0.0.1", 4444);
+            clientSocket = new Socket(ip, Integer.valueOf(port));
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         } catch(IOException e) {
@@ -78,7 +78,7 @@ public class ChatClient {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner sc = new Scanner(System.in);
-        startConnection();
+        startConnection(args[0], args[1]);
         boolean success = false;
         while(!success) {
             clearScreen();
