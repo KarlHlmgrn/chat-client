@@ -35,18 +35,18 @@ public class ChatClient {
         }
     }
 
-    public static String createAccount(String accountName, String pincode) throws IOException {
+    public static String createAccount(String accountName, String password) throws IOException {
         out.println("createAccount");
         out.println(accountName);
-        out.println(pincode);
+        out.println(password);
         String response = in.readLine();
         return response;
     }
 
-    public static String logIn(String accountName, String pincode) throws IOException {
+    public static String logIn(String accountName, String password) throws IOException {
         out.println("logIn");
         out.println(accountName);
-        out.println(pincode);
+        out.println(password);
         String response = in.readLine();
         return response;
     }
